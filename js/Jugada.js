@@ -17,3 +17,12 @@ class Jugada
         this.resultado = json.resultado;
     }
 }
+
+/*
+    En recepción (R):
+    ( -- )  Dos negativos, punto directo para el otro equipo
+    ( - )   Negativo, la recepción no nos permite jugar con nuestro central
+    ( : )   Dos puntos, el balón pasa al otro campo, ellos tienen el siguiente ataque
+    ( + )   Positivo, nos permite atacar con nuestro central, aunque no comodamente.
+    ( ++ )  Dos positivos, recepción perfecta en cuanto a altura y posición.
+*/
