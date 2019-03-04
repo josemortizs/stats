@@ -1,0 +1,81 @@
+/*
+    Estilos globales de la aplicación STATS
+    Desarrollado por José Manuel Ortiz Sánchez
+*/
+
+/* CSS: Globales */
+html,
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.clearfix{
+    float: none;
+    clear: both;
+}
+
+.panel-izquierdo,
+.panel-derecho{
+    float: left;
+    width: 49%;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+}
+
+.panel-derecho{
+    margin-left: 1%;
+}
+/* Fin de CSS: Globales */
+
+/* CSS Header */
+
+header{
+    float: left;
+    width: 100%;
+    text-align: center;
+}
+
+/* Fin de CSS: Header */
+
+/* CSS Nabvar */
+
+nav {
+    float: left;
+    width: 98%;
+    margin: 1%;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+    display: inline-block;
+}
+  
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+li a.active {
+    color: white;
+    background-color: orange;
+}
+
+/* Fin de CSS: Navbar */
