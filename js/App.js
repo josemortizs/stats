@@ -1,30 +1,3 @@
-/* Carga inicial de datos - Solo válido para pruebas 
-var jugador = new Jugador('11', 'Alberto Ortiz Sánchez', 'Líbero');
-var jugador2 = new Jugador('4', 'Pepe Ortiz Sánchez', 'Receptor');
-
-jugador.agregarJugada(new Jugada('R', '++'));
-jugador.agregarJugada(new Jugada('R', '--'));
-jugador.agregarJugada(new Jugada('R', '-'));
-jugador.agregarJugada(new Jugada('R', '++'));
-jugador.agregarJugada(new Jugada('R', ':'));
-jugador.agregarJugada(new Jugada('R', '-'));
-jugador.agregarJugada(new Jugada('R', '++'));
-jugador.agregarJugada(new Jugada('R', '+'));
-jugador.agregarJugada(new Jugada('R', '+'));
-jugador.agregarJugada(new Jugada('R', '++'));
-
-jugador2.agregarJugada(new Jugada('R', '++'));
-jugador2.agregarJugada(new Jugada('R', '+'));
-jugador2.agregarJugada(new Jugada('R', '+'));
-jugador2.agregarJugada(new Jugada('R', '++'));
-
-var partido = new Partido('01/01/2019', '12:00', 'JuvFem', 'CV Berja', 'CNA');
-partido.jugadores.push(jugador);
-partido.jugadores.push(jugador2);
-
-*/
-
-
 /* Sección de funciones */
 
 function guardaPartido()
@@ -40,14 +13,100 @@ function recuperaPartido()
     partido.fromJSON(partidoLocalStorage);
 }
 
+function renderizaEstadisticas()
+{
+    var estadisticas = 
+    `
+    <table>
+        <tr>
+            <th rowspan="2">#</th>
+            <th rowspan="2">Jugador</th>
+            <th colspan="5">Saque</th>
+            <th colspan="5">Recepción</th>
+            <th colspan="5">Ataque</th>
+            <th colspan="5">Bloqueo</th>
+            <th colspan="5">Defensa</th>
+        </tr>
+        <tr>
+            <td>ST</td>
+            <td>--</td>
+            <td>-</td>
+            <td>+</td>
+            <td>++</td>
+            <td>RT</td>
+            <td>--</td>
+            <td>-</td>
+            <td>+</td>
+            <td>++</td>                    
+            <td>AT</td>
+            <td>--</td>
+            <td>-</td>
+            <td>+</td>
+            <td>++</td>
+            <td>BT</td>
+            <td>--</td>
+            <td>-</td>
+            <td>+</td>
+            <td>++</td>                     
+            <td>DT</td>
+            <td>--</td>
+            <td>-</td>
+            <td>+</td>
+            <td>++</td>
+        </tr>
+    `;
+
+
+    for(let i=0; i<partido.jugadores.length; i++)
+    {
+        // Arreglar este código, crear un for y reordenar
+        // el Array que devuelve la clase Jugador en su método 
+        // getDatosEstadisticos()
+        estadisticas+= `<tr>`;
+            estadisticas+= `<td>`+  +`</td>`;
+            estadisticas+= `<td>`+  +`</td>`;
+            estadisticas+= `<td>`+  +`</td>`;
+            estadisticas+= `<td>`+  +`</td>`;
+            estadisticas+= `<td>`+  +`</td>`;
+            estadisticas+= `<td>`+  +`</td>`;
+            estadisticas+= `<td>`+  +`</td>`;
+            estadisticas+= `<td>`+  +`</td>`;
+            estadisticas+= `<td>`+  +`</td>`;
+            estadisticas+= `<td>`+  +`</td>`;
+            estadisticas+= `<td>`+  +`</td>`;
+            estadisticas+= `<td>`+  +`</td>`;
+            estadisticas+= `<td>`+  +`</td>`;
+            estadisticas+= `<td>`+  +`</td>`;
+            estadisticas+= `<td>`+  +`</td>`;
+            estadisticas+= `<td>`+  +`</td>`;
+            estadisticas+= `<td>`+  +`</td>`;
+            estadisticas+= `<td>`+  +`</td>`;
+            estadisticas+= `<td>`+  +`</td>`;
+            estadisticas+= `<td>`+  +`</td>`;
+            estadisticas+= `<td>`+  +`</td>`;
+            estadisticas+= `<td>`+  +`</td>`;
+            estadisticas+= `<td>`+  +`</td>`;
+            estadisticas+= `<td>`+  +`</td>`;
+            estadisticas+= `<td>`+  +`</td>`;
+            estadisticas+= `<td>`+  +`</td>`;
+            estadisticas+= `<td>`+  +`</td>`;
+        estadisticas+= `</tr>`;
+    }
+
+
+    estadisticas+= `</table>`;
+
+    return estadisticas;
+}
 /* Fin de: Sección de funciones */
+
 
 
 /* Instrucciones iniciales */
 var partido = new Partido();
-recuperaPartido();
-console.log(partido);   
+var datosAPP = document.getElementById('datos-app');
 
-partido.jugadores[0].agregarJugada(new Jugada('R', '--'));
-partido.jugadores[0].agregarJugada(new Jugada('R', '--'));
-partido.jugadores[0].agregarJugada(new Jugada('R', '--'));
+recuperaPartido();
+console.log(partido); 
+
+datosAPP.innerHTML = renderizaEstadisticas();

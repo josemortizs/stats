@@ -25,4 +25,11 @@ class Jugada
     ( : )   Dos puntos, el balón pasa al otro campo, ellos tienen el siguiente ataque
     ( + )   Positivo, nos permite atacar con nuestro central, aunque no comodamente.
     ( ++ )  Dos positivos, recepción perfecta en cuanto a altura y posición.
+
+    En saque (S):
+    ( -- )  Dos negativos, saque fallado directamente
+    ( - )   Negativo, nos atacan con todas sus alternativas
+    ( : )   Dos puntos, nos devuelven el balón sin atacarlo
+    ( + )   Positivo, solo pueden atacar por las puntas.
+    ( ++ )  Dos positivos, hacemos punto directo.
 */

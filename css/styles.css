@@ -14,18 +14,26 @@ body{
     clear: both;
 }
 
-.panel-izquierdo,
-.panel-derecho{
+#datos-app{
     float: left;
-    width: 49%;
+    width: 80%;
     border: 1px solid #e7e7e7;
     background-color: #f3f3f3;
     border-radius: 10px;
+    margin-left: 10%;
+    padding: 10px;
 }
 
-.panel-derecho{
-    margin-left: 1%;
+#datos-app table{
+    width: 100%;
+    text-align: center;
 }
+
+#datos-app table tr:hover{
+    background-color: white;
+    cursor: pointer;
+}
+
 /* Fin de CSS: Globales */
 
 /* CSS Header */
