@@ -200,65 +200,65 @@ class Jugador
             }
         }
 
-        datosEstadisticos.push(rTotales);
-        datosEstadisticos.push(r2n);
-        datosEstadisticos.push(r2n*100/rTotales);
-        datosEstadisticos.push(r1n);
-        datosEstadisticos.push(r1n*100/rTotales);
-        datosEstadisticos.push(r2puntos);
-        datosEstadisticos.push(r2puntos*100/rTotales);
-        datosEstadisticos.push(r1p);
-        datosEstadisticos.push(r1p*100/rTotales);
-        datosEstadisticos.push(r2p);
-        datosEstadisticos.push(r2p*100/rTotales);
+        datosEstadisticos.push(rTotales);               //0
+        datosEstadisticos.push(r2n);                    //1
+        datosEstadisticos.push(r2n*100/rTotales);       //2
+        datosEstadisticos.push(r1n);                    //3
+        datosEstadisticos.push(r1n*100/rTotales);       //4
+        datosEstadisticos.push(r2puntos);               //5
+        datosEstadisticos.push(r2puntos*100/rTotales);  //6
+        datosEstadisticos.push(r1p);                    //7
+        datosEstadisticos.push(r1p*100/rTotales);       //8
+        datosEstadisticos.push(r2p);                    //9
+        datosEstadisticos.push(r2p*100/rTotales);       //10
 
-        datosEstadisticos.push(sTotales);
-        datosEstadisticos.push(s2n);
-        datosEstadisticos.push(s2n*100/sTotales);
-        datosEstadisticos.push(s1n);
-        datosEstadisticos.push(s1n*100/sTotales);
-        datosEstadisticos.push(s2puntos);
-        datosEstadisticos.push(s2puntos*100/sTotales);
-        datosEstadisticos.push(s1p);
-        datosEstadisticos.push(s1p*100/sTotales);
-        datosEstadisticos.push(s2p);
-        datosEstadisticos.push(s2p*100/sTotales);
+        datosEstadisticos.push(sTotales);               //11
+        datosEstadisticos.push(s2n);                    //12
+        datosEstadisticos.push(s2n*100/sTotales);       //13
+        datosEstadisticos.push(s1n);                    //14
+        datosEstadisticos.push(s1n*100/sTotales);       //15
+        datosEstadisticos.push(s2puntos);               //16
+        datosEstadisticos.push(s2puntos*100/sTotales);  //17
+        datosEstadisticos.push(s1p);                    //18
+        datosEstadisticos.push(s1p*100/sTotales);       //19
+        datosEstadisticos.push(s2p);                    //20
+        datosEstadisticos.push(s2p*100/sTotales);       //21
 
-        datosEstadisticos.push(aTotales);
-        datosEstadisticos.push(a2n);
-        datosEstadisticos.push(a2n*100/aTotales);
-        datosEstadisticos.push(a1n);
-        datosEstadisticos.push(a1n*100/aTotales);
-        datosEstadisticos.push(a2puntos);
-        datosEstadisticos.push(a2puntos*100/aTotales);
-        datosEstadisticos.push(a1p);
-        datosEstadisticos.push(a1p*100/aTotales);
-        datosEstadisticos.push(a2p);
-        datosEstadisticos.push(a2p*100/aTotales);
+        datosEstadisticos.push(aTotales);               //22
+        datosEstadisticos.push(a2n);                    //23
+        datosEstadisticos.push(a2n*100/aTotales);       //24
+        datosEstadisticos.push(a1n);                    //25
+        datosEstadisticos.push(a1n*100/aTotales);       //26
+        datosEstadisticos.push(a2puntos);               //27
+        datosEstadisticos.push(a2puntos*100/aTotales);  //28
+        datosEstadisticos.push(a1p);                    //29
+        datosEstadisticos.push(a1p*100/aTotales);       //30
+        datosEstadisticos.push(a2p);                    //31
+        datosEstadisticos.push(a2p*100/aTotales);       //32
 
-        datosEstadisticos.push(bTotales);
-        datosEstadisticos.push(b2n);
-        datosEstadisticos.push(b2n*100/bTotales);
-        datosEstadisticos.push(b1n);
-        datosEstadisticos.push(b1n*100/bTotales);
-        datosEstadisticos.push(b2puntos);
-        datosEstadisticos.push(b2puntos*100/bTotales);
-        datosEstadisticos.push(b1p);
-        datosEstadisticos.push(b1p*100/bTotales);
-        datosEstadisticos.push(b2p);
-        datosEstadisticos.push(b2p*100/bTotales);
+        datosEstadisticos.push(bTotales);               //33
+        datosEstadisticos.push(b2n);                    //34
+        datosEstadisticos.push(b2n*100/bTotales);       //35
+        datosEstadisticos.push(b1n);                    //36
+        datosEstadisticos.push(b1n*100/bTotales);       //37
+        datosEstadisticos.push(b2puntos);               //38
+        datosEstadisticos.push(b2puntos*100/bTotales);  //39   
+        datosEstadisticos.push(b1p);                    //40
+        datosEstadisticos.push(b1p*100/bTotales);       //41
+        datosEstadisticos.push(b2p);                    //42
+        datosEstadisticos.push(b2p*100/bTotales);       //43
 
-        datosEstadisticos.push(dTotales);
-        datosEstadisticos.push(d2n);
-        datosEstadisticos.push(d2n*100/dTotales);
-        datosEstadisticos.push(d1n);
-        datosEstadisticos.push(d1n*100/dTotales);
-        datosEstadisticos.push(d2puntos);
-        datosEstadisticos.push(d2puntos*100/dTotales);
-        datosEstadisticos.push(d1p);
-        datosEstadisticos.push(d1p*100/dTotales);
-        datosEstadisticos.push(d2p);
-        datosEstadisticos.push(d2p*100/dTotales);
+        datosEstadisticos.push(dTotales);               //44
+        datosEstadisticos.push(d2n);                    //45
+        datosEstadisticos.push(d2n*100/dTotales);       //46
+        datosEstadisticos.push(d1n);                    //47
+        datosEstadisticos.push(d1n*100/dTotales);       //48
+        datosEstadisticos.push(d2puntos);               //49
+        datosEstadisticos.push(d2puntos*100/dTotales);  //50
+        datosEstadisticos.push(d1p);                    //51
+        datosEstadisticos.push(d1p*100/dTotales);       //52
+        datosEstadisticos.push(d2p);                    //53
+        datosEstadisticos.push(d2p*100/dTotales);       //54
 
         for(var g = 0; g<datosEstadisticos.length; g++)
         {
