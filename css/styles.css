@@ -27,6 +27,11 @@ body{
 #datos-app table{
     width: 100%;
     text-align: center;
+    border-collapse: collapse;
+}
+
+#datos-app tr{
+    border-bottom: 1px solid #ccc;
 }
 
 #datos-app table tr:hover{

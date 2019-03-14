@@ -263,6 +263,10 @@ class Jugador
         for(var g = 0; g<datosEstadisticos.length; g++)
         {
             (isNaN(datosEstadisticos[g]))? datosEstadisticos[g] = 0 : datosEstadisticos[g] = datosEstadisticos[g];
+
+            (Number.isInteger(datosEstadisticos[g]))? 
+            datosEstadisticos[g] = datosEstadisticos[g]: 
+            datosEstadisticos[g] = datosEstadisticos[g].toFixed(1);
         }
 
         return datosEstadisticos;
