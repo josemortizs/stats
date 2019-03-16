@@ -1,3 +1,16 @@
+/* Sección de variables enlazadas con el DOM */
+
+var datosAPP = document.getElementById('datos-app');
+var addPlayer = document.getElementById('addPlayer');
+var panelAddPlayer = document.getElementById('panelAddPlayer');
+var buttonCancel = document.getElementById('buttonCancel');
+var buttonAddPlayer = document.getElementById('buttonAddPlayer');
+var addPlayerNumber = document.getElementById('addPlayerNumber'); 
+var addPlayerName = document.getElementById('addPlayerName'); 
+var addPlayerRol = document.getElementById('addPlayerRol'); 
+var closePanelAddPlayer = document.getElementsByClassName("close")[0];
+
+
 /* Sección de funciones */
 
 function guardaPartido()
@@ -28,36 +41,36 @@ function renderizaEstadisticas()
             <th colspan="6">Defensa</th>
         </tr>
         <tr>
-            <td>ST</td>
-            <td>--</td>
-            <td>-</td>
-            <td>:</td>
-            <td>+</td>
-            <td>++</td>
-            <td>RT</td>
-            <td>--</td>
-            <td>-</td>
-            <td>:</td>
-            <td>+</td>
-            <td>++</td>                    
-            <td>AT</td>
-            <td>--</td>
-            <td>-</td>
-            <td>:</td>
-            <td>+</td>
-            <td>++</td>
-            <td>BT</td>
-            <td>--</td>
-            <td>-</td>
-            <td>:</td>
-            <td>+</td>
-            <td>++</td>                     
-            <td>DT</td>
-            <td>--</td>
-            <td>-</td>
-            <td>:</td>
-            <td>+</td>
-            <td>++</td>
+            <th>ST</th>
+            <th>--</th>
+            <th>-</th>
+            <th>:</th>
+            <th>+</th>
+            <th>++</th>
+            <th>RT</th>
+            <th>--</th>
+            <th>-</th>
+            <th>:</th>
+            <th>+</th>
+            <th>++</th>                    
+            <th>AT</th>
+            <th>--</th>
+            <th>-</th>
+            <th>:</th>
+            <th>+</th>
+            <th>++</th>
+            <th>BT</th>
+            <th>--</th>
+            <th>-</th>
+            <th>:</th>
+            <th>+</th>
+            <th>++</th>                     
+            <th>DT</th>
+            <th>--</th>
+            <th>-</th>
+            <th>:</th>
+            <th>+</th>
+            <th>++</th>
         </tr>
     `;
 
@@ -66,8 +79,8 @@ function renderizaEstadisticas()
     {
         let estadisticasIndividuales = partido.jugadores[i].getDatosEstadisticos();
         estadisticas+= `<tr>`;
-            estadisticas+= `<td rowspan="2">`+ partido.jugadores[i].numero +`</td>`;
-            estadisticas+= `<td rowspan="2">`+ partido.jugadores[i].nombre +`</td>`;
+            estadisticas+= `<td class='font-b' rowspan="2">`+ partido.jugadores[i].numero +`</td>`;
+            estadisticas+= `<td>`+ partido.jugadores[i].nombre +`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[11]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[12]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[14]+`</td>`;
@@ -100,6 +113,7 @@ function renderizaEstadisticas()
             estadisticas+= `<td>`+estadisticasIndividuales[53]+`</td>`;
         estadisticas+= `</tr>`;
             estadisticas+= `<tr>`;
+            estadisticas+= `<td>`+ partido.jugadores[i].posicion +`</td>`;
             estadisticas+= `<td>`+'%'+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[13]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[15]+`</td>`;
@@ -140,15 +154,43 @@ function renderizaEstadisticas()
     return estadisticas;
 }
 /* Fin de: Sección de funciones */
+/* ******************************************************************************* */
+/* Sección de eventos */
 
+addPlayer.addEventListener('click', () => {
+    panelAddPlayer.style.display = 'block';
+    document.getElementById('info-partido').innerHTML = partido.getDatosGenerales();
+});
 
+closePanelAddPlayer.addEventListener('click', () => {
+    panelAddPlayer.style.display = 'none';
+});
 
+buttonCancel.addEventListener('click', () => {
+    panelAddPlayer.style.display = 'none';
+});
+
+window.onclick = function(event) {
+    if (event.target == panelAddPlayer) {
+        panelAddPlayer.style.display = "none";
+    }
+}
+
+buttonAddPlayer.addEventListener('click', () => {
+    panelAddPlayer.style.display = 'none';
+    partido.jugadores.push(new Jugador(addPlayerNumber.value, addPlayerName.value, addPlayerRol.value));
+    guardaPartido();
+    datosAPP.innerHTML = renderizaEstadisticas();
+});
+
+/* Fin de sección de enventos */
+/* ******************************************************************************* */
 /* Instrucciones iniciales */
 
 var partido = new Partido();
-var datosAPP = document.getElementById('datos-app');
 
-
-recuperaPartido();
-
-datosAPP.innerHTML = renderizaEstadisticas();
+if (localStorage.length > 0)
+{
+    recuperaPartido();
+    datosAPP.innerHTML = renderizaEstadisticas();
+}

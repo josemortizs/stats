@@ -30,4 +30,9 @@ class Partido
     {
         return this.categoria + this.fecha + this.hora + this.rival;
     }
+
+    getDatosGenerales()
+    {
+        return this.fecha + " - " +  this.hora + " - Versus: " + this.rival + " - " + this.categoria;
+    }
 }

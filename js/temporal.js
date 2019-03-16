@@ -1,4 +1,7 @@
 /* Carga inicial de datos - Solo válido para pruebas 
+
+var partido = new Partido('01/01/2019', '12:00', 'JuvFem', 'CV Berja', 'CNA');
+
 var jugador = new Jugador('11', 'Alberto Ortiz Sánchez', 'Líbero');
 var jugador2 = new Jugador('4', 'Pepe Ortiz Sánchez', 'Receptor');
 
@@ -18,7 +21,6 @@ jugador2.agregarJugada(new Jugada('R', '+'));
 jugador2.agregarJugada(new Jugada('R', '+'));
 jugador2.agregarJugada(new Jugada('R', '++'));
 
-var partido = new Partido('01/01/2019', '12:00', 'JuvFem', 'CV Berja', 'CNA');
 partido.jugadores.push(jugador);
 partido.jugadores.push(jugador2);
 
@@ -33,6 +35,8 @@ partido.jugadores[0].agregarJugada(new Jugada('D', '+'));
 partido.jugadores[1].agregarJugada(new Jugada('A', '++'));
 partido.jugadores[1].agregarJugada(new Jugada('S', '+'));
 partido.jugadores[1].agregarJugada(new Jugada('D', ':'));
+
+guardaPartido();
 
 */
 
