@@ -1,14 +1,16 @@
 /* Sección de variables enlazadas con el DOM */
 
 var datosAPP = document.getElementById('datos-app');
-var panelReviewPlayer = document.getElementById('panelReviewPlayer');
 var buttonAddPlayer = document.getElementById('buttonAddPlayer');
+var buttonAddPlay = document.getElementById('buttonAddPlay');
 var addPlayerNumber = document.getElementById('addPlayerNumber'); 
 var addPlayerName = document.getElementById('addPlayerName'); 
 var addPlayerRol = document.getElementById('addPlayerRol');
 var addPlay = document.getElementById('addPlay'); 
-var closePanelAddPlayer = document.getElementsByClassName("close")[0];
+var closePanelReviewPlay = document.getElementsByClassName("close")[0];
 var player = document.getElementById('player');
+var reviewPlay = document.getElementById('reviewPlay');
+var panelReviewPlay = document.getElementById('panelReviewPlay');
 
 /* Sección de variables de App.js */
 
@@ -97,6 +99,17 @@ function seleccionaJugador(numero)
 {
     jugadorSeleccionado = numero;
     agregaOpacidadJugadores(numero);
+}
+
+function reiniciaFormularioInsercionJugadas()
+{
+    jugadorSeleccionado = 0;
+    gestoSeleccionado = '';
+    jugadaSeleccionada = '';
+
+    agregaOpacidadGestos();
+    agregaOpacidadJugadas();
+    agregaOpacidadJugadores();
 }
 
 function renderizaJugadores()
@@ -242,14 +255,21 @@ function renderizaEstadisticas()
 /* ******************************************************************************* */
 /* Sección de eventos */
 
-
-closePanelAddPlayer.addEventListener('click', () => {
-    panelAddPlayer.style.display = 'none';
+reviewPlay.addEventListener('click', () => {
+    panelReviewPlay.style.display = 'block';
 });
 
+closePanelReviewPlay.addEventListener('click', () => {
+    panelReviewPlay.style.display = 'none';
+});
+
+/*
+    La siguiente función hace que no se muestre el modal JavaScript,
+    mostrado en pantalla, en caso de que se pinche fuera de éste.
+*/
 window.onclick = function(event) {
-    if (event.target == panelReviewPlayer) {
-        panelReviewPlayer.style.display = "none";
+    if (event.target == panelReviewPlay) {
+        panelReviewPlay.style.display = "none";
     }
 }
 
@@ -260,6 +280,20 @@ buttonAddPlayer.addEventListener('click', () => {
     player.innerHTML = renderizaJugadores();
     addPlayerNumber.value = 0;
     addPlayerName.value = '';
+});
+
+buttonAddPlay.addEventListener('click', () => {
+    let jugada = new Jugada(gestoSeleccionado, jugadaSeleccionada);
+    for (let k = 0; k<partido.jugadores.length; k++)
+    {
+        if(partido.jugadores[k].numero == jugadorSeleccionado)
+        {
+            partido.jugadores[k].agregarJugada(jugada);
+        } 
+    }
+    guardaPartido();
+    datosAPP.innerHTML = renderizaEstadisticas();
+    reiniciaFormularioInsercionJugadas();
 });
 
 /* Fin de sección de enventos */

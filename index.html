@@ -15,6 +15,7 @@
         <nav>
             <ul>
                 <li><a id="addPlay" href="#">NUEVO PARTIDO</a></li>
+                <li><a id="reviewPlay" href="#">MODIFICAR PARTIDO</a></li>
             </ul>
         </nav>
     </header>
@@ -60,17 +61,22 @@
                     <div onclick="seleccionaJugada('+')" class="move-player">+</div>
                     <div onclick="seleccionaJugada('++')" class="move-player">++</div>
                 </div>
+                <div class="clearfix"></div>
+                <p>
+                    <div class="button" id="buttonAddPlay">AGREGAR</div>
+                    <input type="text" id="insertPlayNow">
+                </p>
             </div>
         </div>
-        <!-- Panel de inserción de jugadores -->
-        <div id="panelReviewPlayer" class="modal">
+        <!-- Panel de modificación de partidos y estadísticas individuales -->
+        <div id="panelReviewPlay" class="modal">
             <div class="modal-content">
                 <div class="modal-header">
                     <span class="close">&times;</span>
-                    <h2>ESTADÍSTICAS INDIVIDUALES</h2>
+                    <h2>MODIFICAR PARTIDO</h2>
                 </div>
                 <div class="modal-body">
-
+                    
                 </div>
                 <div class="clearfix"></div>
                 <div class="modal-footer">

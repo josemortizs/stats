@@ -270,6 +270,16 @@ li a.active {
     color: white;
 }
 
+#insertPlayNow{
+    width: 46%;
+    text-align: center;
+    height: 35px;
+    margin-left: 2%;
+    border-radius: 0;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
 .number-player, .move-player, .gesture-selected{
     width:30px;
     height:30px;
@@ -311,5 +321,13 @@ li a.active {
 
     .form-add-move{
         margin-left: 5%;
+    }
+
+    #buttonAddPlay{
+        width: 93%;
+    }
+
+    #insertPlayNow{
+        display: none;
     }
 }
