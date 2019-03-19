@@ -31,11 +31,11 @@ body{
 }
 
 #datos-app th{
-    border: 0.5px solid #00000045;
+    border: 1px solid #5cb85c;
 }
 
 #datos-app tr{
-    border-bottom: 1px solid #ccc;
+    border-bottom: 0.5px solid #5cb85c;
 }
 
 #datos-app table tr:hover{
@@ -213,7 +213,7 @@ li a.active {
 /* ************************************************************ */
 /* Reglas para formularios */
 
-.form-add-player, .form-add-play, .form-add-move{
+.form-add-player{
     float: left;
     width: 28%;
     margin: 1%;
@@ -221,26 +221,35 @@ li a.active {
     background-color: #f3f3f3;
 }
 
-.ml-6{
-    margin-left: 6%;
+.form-add-move{
+    float: left;
+    width: 61%;
+    margin: 1%;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+}
+
+.ml-5{
+    margin-left: 5%;
 }
 
 .form-header{
     text-align: center;
-    padding: 5%;
+    padding: 15px;
     background-color: #5cb85c;
     color: white;
 }
 
 .form-body{
-    padding: 5%;
+    padding: 2%;
 }
 
 .form-body input, select{
-    width: 100%;
+    width: 95%;
     text-align: center;
     height: 30px;
     border-radius: 10px;
+    margin-left: 2%;
 }
 
 .form-body .input{
@@ -261,6 +270,31 @@ li a.active {
     color: white;
 }
 
+.number-player, .move-player, .gesture-selected{
+    width:30px;
+    height:30px;
+    background-color:#5cb85c;
+    margin: 5px;
+    padding:10px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    font-size: 32px;
+    line-height:32px;
+    text-transform: uppercase;
+    float:left;
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    color: white;
+    opacity: 0.5;
+}
+
+.number-player:hover, .move-player:hover, .gesture-selected:hover{
+    opacity: 1;
+}
+
+
 /* ************************************************************ */
 /* ************************************************************ */
 /* ************************************************************ */
@@ -268,4 +302,14 @@ li a.active {
 
 @media only screen and (max-width: 1024px) {
 
+}
+
+@media only screen and (max-width: 768px) {
+    .form-add-player, .form-add-move{
+        width: 92%;
+    }
+
+    .form-add-move{
+        margin-left: 5%;
+    }
 }

@@ -23,7 +23,7 @@
     <main>
         <div id="datos-app"></div>
         <div class="clearfix"></div>
-        <div class="form-add-player ml-6">
+        <div class="form-add-player ml-5">
             <div class="form-header">AGREGAR JUGADOR</div>
             <div class="form-body">
                 <p><input type="number" id="addPlayerNumber" placeholder="Número"></p>
@@ -40,13 +40,27 @@
                 </p>
             </div>
         </div>
-        <div class="form-add-play">
-            <div class="form-header"></div>
-            <div class="form-body"></div>
-        </div>
         <div class="form-add-move">
-            <div class="form-header"></div>
-            <div class="form-body"></div>
+            <div class="form-header">AGREGAR JUGADA</div>
+            <div class="form-body">
+                <div id="player"></div>
+                <div class="clearfix"></div>
+                <div id="move">
+                    <div onclick="seleccionaGesto('S')" class="gesture-selected">S</div>
+                    <div onclick="seleccionaGesto('R')" class="gesture-selected">R</div>
+                    <div onclick="seleccionaGesto('A')" class="gesture-selected">A</div>
+                    <div onclick="seleccionaGesto('B')" class="gesture-selected">B</div>
+                    <div onclick="seleccionaGesto('D')" class="gesture-selected">D</div>
+                </div>
+                <div class="clearfix"></div>
+                <div id="result-move">
+                    <div onclick="seleccionaJugada('--')" class="move-player">--</div>
+                    <div onclick="seleccionaJugada('-')" class="move-player">-</div>
+                    <div onclick="seleccionaJugada(':')" class="move-player">:</div>
+                    <div onclick="seleccionaJugada('+')" class="move-player">+</div>
+                    <div onclick="seleccionaJugada('++')" class="move-player">++</div>
+                </div>
+            </div>
         </div>
         <!-- Panel de inserción de jugadores -->
         <div id="panelReviewPlayer" class="modal">

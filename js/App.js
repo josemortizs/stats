@@ -7,7 +7,15 @@ var addPlayerNumber = document.getElementById('addPlayerNumber');
 var addPlayerName = document.getElementById('addPlayerName'); 
 var addPlayerRol = document.getElementById('addPlayerRol'); 
 var closePanelAddPlayer = document.getElementsByClassName("close")[0];
+var player = document.getElementById('player');
 
+/* Sección de variables de App.js */
+
+var partido = new Partido();
+
+var jugadorSeleccionado = 1;
+var gestoSeleccionado = 'S';
+var jugadaSeleccionada = '--';
 
 /* Sección de funciones */
 
@@ -22,6 +30,84 @@ function recuperaPartido()
     let partidoLocalStorage = JSON.parse(localStorage.getItem(localStorage.key(0)));
     
     partido.fromJSON(partidoLocalStorage);
+}
+
+function agregaOpacidadJugadores(numero)
+{
+    var numeros = document.getElementsByClassName('number-player');
+    for (let i=0; i<numeros.length; i++)
+    {
+        if(numeros[i].innerHTML === numero)
+        {
+            numeros[i].style = ' opacity: 1';
+        }
+        else
+        {
+            numeros[i].style = ' opacity: 0.5';
+        }
+    }
+}
+
+function agregaOpacidadJugadas(jugada)
+{
+    var jugadas = document.getElementsByClassName('move-player');
+    for (let i=0; i<jugadas.length; i++)
+    {
+        if(jugadas[i].innerHTML === jugada)
+        {
+            jugadas[i].style = ' opacity: 1';
+        }
+        else
+        {
+            jugadas[i].style = ' opacity: 0.5';
+        }
+    }
+}
+
+function agregaOpacidadGestos(gesto)
+{
+    var gestos = document.getElementsByClassName('gesture-selected');
+    for (let i=0; i<gestos.length; i++)
+    {
+        if(gestos[i].innerHTML === gesto)
+        {
+            gestos[i].style = ' opacity: 1';
+        }
+        else
+        {
+            gestos[i].style = ' opacity: 0.5';
+        }
+    }
+}
+
+function seleccionaJugada(jugada)
+{
+    jugadaSeleccionada = jugada;
+    agregaOpacidadJugadas(jugada);
+}
+
+function seleccionaGesto(gesto)
+{
+    gestoSeleccionado = gesto;
+    agregaOpacidadGestos(gesto);
+}
+
+function seleccionaJugador(numero)
+{
+    jugadorSeleccionado = numero;
+    agregaOpacidadJugadores(numero);
+}
+
+function renderizaJugadores()
+{
+    var jugadores = '';
+
+    for (let i = 0; i < partido.jugadores.length; i++)
+    {
+       jugadores += `<div onclick="seleccionaJugador('${partido.jugadores[i].numero}')" class="number-player">${partido.jugadores[i].numero}</div>`;
+    }
+
+   return jugadores;
 }
 
 function renderizaEstadisticas()
@@ -155,31 +241,34 @@ function renderizaEstadisticas()
 /* ******************************************************************************* */
 /* Sección de eventos */
 
+
 closePanelAddPlayer.addEventListener('click', () => {
     panelAddPlayer.style.display = 'none';
 });
 
 window.onclick = function(event) {
-    if (event.target == panelAddPlayer) {
-        panelAddPlayer.style.display = "none";
+    if (event.target == panelReviewPlayer) {
+        panelReviewPlayer.style.display = "none";
     }
 }
 
 buttonAddPlayer.addEventListener('click', () => {
-    panelAddPlayer.style.display = 'none';
     partido.jugadores.push(new Jugador(addPlayerNumber.value, addPlayerName.value, addPlayerRol.value));
     guardaPartido();
     datosAPP.innerHTML = renderizaEstadisticas();
+    player.innerHTML = renderizaJugadores();
+    addPlayerNumber.value = 0;
+    addPlayerName.value = '';
 });
 
 /* Fin de sección de enventos */
 /* ******************************************************************************* */
 /* Instrucciones iniciales */
 
-var partido = new Partido();
-
 if (localStorage.length > 0)
 {
     recuperaPartido();
     datosAPP.innerHTML = renderizaEstadisticas();
+    player.innerHTML = renderizaJugadores();
+
 }
