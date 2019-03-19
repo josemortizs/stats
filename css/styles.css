@@ -64,7 +64,8 @@ body{
 }
 
 .button:hover{
-    background-color: #e7e7e7;
+    background-color: #5cb85c;
+    color: white;
 }
 
 /* Fin de CSS: Globales */
@@ -121,8 +122,7 @@ li a.active {
 
 /* Fin de CSS: Navbar */
 
-/* Formularios de inserción de jugadores y jugadas */
-
+/* Formularios de revisión de estadísticas individuales */
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -138,7 +138,7 @@ li a.active {
 
 .modal-content {
     text-align: center;
-    background-color: #f3f3f3;
+    background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
@@ -167,8 +167,8 @@ li a.active {
 
 .modal-header {
     padding: 2px 16px;
-    background-color: #e7e7e7;
-    color: #666;
+    background-color: #5cb85c;
+    color: white;
 }
 
 .modal-body {
@@ -188,12 +188,19 @@ li a.active {
     border-radius: 20px;
     padding: 10px;
     font-size: 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-body .button:hover{
+    background-color: #5cb85c;
+    color: white;
 }
 
 .modal-footer {
     padding: 2px 16px;
-    background-color: #e7e7e7;
-    color: #666;
+    background-color: #5cb85c;
+    color: white;
 }
 
 /* Add Animation */
@@ -201,5 +208,64 @@ li a.active {
     from {top: -300px; opacity: 0}
     to {top: 0; opacity: 1}
 }
+/* ************************************************************ */
+/* ************************************************************ */
+/* ************************************************************ */
+/* Reglas para formularios */
 
-/* Fin de formularios de inserción de jugadores y jugadas */
+.form-add-player, .form-add-play, .form-add-move{
+    float: left;
+    width: 28%;
+    margin: 1%;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+}
+
+.ml-6{
+    margin-left: 6%;
+}
+
+.form-header{
+    text-align: center;
+    padding: 5%;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.form-body{
+    padding: 5%;
+}
+
+.form-body input, select{
+    width: 100%;
+    text-align: center;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.form-body .input{
+    width: 100%;
+}
+
+#buttonAddPlayer{
+    width: 88%;
+}
+
+#addPlayerRol{
+    cursor: pointer;
+    user-select: none;
+}
+
+#addPlayerRol:hover{
+    background-color: #5cb85c;
+    color: white;
+}
+
+/* ************************************************************ */
+/* ************************************************************ */
+/* ************************************************************ */
+/* Reglas para distintas resoluciones */
+
+@media only screen and (max-width: 1024px) {
+
+}

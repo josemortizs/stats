@@ -14,7 +14,7 @@
         <!--Menú de Navegación-->
         <nav>
             <ul>
-                <li><a id="addPlayer" href="#">AGREGAR JUGADOR</a></li>
+                <li><a id="addPlay" href="#">NUEVO PARTIDO</a></li>
             </ul>
         </nav>
     </header>
@@ -22,27 +22,41 @@
     <!--Sección principal-->
     <main>
         <div id="datos-app"></div>
+        <div class="clearfix"></div>
+        <div class="form-add-player ml-6">
+            <div class="form-header">AGREGAR JUGADOR</div>
+            <div class="form-body">
+                <p><input type="number" id="addPlayerNumber" placeholder="Número"></p>
+                <p><input type="text" id="addPlayerName" placeholder="Nombre"></p>
+                <p><select id="addPlayerRol">
+                    <option value="Receptor">Receptor</option>
+                    <option value="Central">Central</option>
+                    <option value="Colocador">Colocador</option>
+                    <option value="Opuesto">Opuesto</option>
+                    <option value="Líbero">Líbero</option>
+                </select></p>
+                <p>
+                    <div class="button" id="buttonAddPlayer">AGREGAR</div>
+                </p>
+            </div>
+        </div>
+        <div class="form-add-play">
+            <div class="form-header"></div>
+            <div class="form-body"></div>
+        </div>
+        <div class="form-add-move">
+            <div class="form-header"></div>
+            <div class="form-body"></div>
+        </div>
         <!-- Panel de inserción de jugadores -->
-        <div id="panelAddPlayer" class="modal">
+        <div id="panelReviewPlayer" class="modal">
             <div class="modal-content">
                 <div class="modal-header">
                     <span class="close">&times;</span>
-                    <h2>AGREGAR JUGADOR</h2>
+                    <h2>ESTADÍSTICAS INDIVIDUALES</h2>
                 </div>
                 <div class="modal-body">
-                    <p><input type="number" id="addPlayerNumber" placeholder="Número"></p>
-                    <p><input type="text" id="addPlayerName" placeholder="Nombre"></p>
-                    <p><select id="addPlayerRol">
-                        <option value="Receptor">Receptor</option>
-                        <option value="Central">Central</option>
-                        <option value="Colocador">Colocador</option>
-                        <option value="Opuesto">Opuesto</option>
-                        <option value="Líbero">Líbero</option>
-                    </select></p>
-                    <p>
-                        <div class="button" id="buttonAddPlayer">AGREGAR</div>
-                        <div class="button" id="buttonCancel">CANCELAR</div>
-                    </p>
+
                 </div>
                 <div class="clearfix"></div>
                 <div class="modal-footer">

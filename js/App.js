@@ -1,9 +1,7 @@
 /* Sección de variables enlazadas con el DOM */
 
 var datosAPP = document.getElementById('datos-app');
-var addPlayer = document.getElementById('addPlayer');
-var panelAddPlayer = document.getElementById('panelAddPlayer');
-var buttonCancel = document.getElementById('buttonCancel');
+var panelReviewPlayer = document.getElementById('panelReviewPlayer');
 var buttonAddPlayer = document.getElementById('buttonAddPlayer');
 var addPlayerNumber = document.getElementById('addPlayerNumber'); 
 var addPlayerName = document.getElementById('addPlayerName'); 
@@ -157,16 +155,7 @@ function renderizaEstadisticas()
 /* ******************************************************************************* */
 /* Sección de eventos */
 
-addPlayer.addEventListener('click', () => {
-    panelAddPlayer.style.display = 'block';
-    document.getElementById('info-partido').innerHTML = partido.getDatosGenerales();
-});
-
 closePanelAddPlayer.addEventListener('click', () => {
-    panelAddPlayer.style.display = 'none';
-});
-
-buttonCancel.addEventListener('click', () => {
     panelAddPlayer.style.display = 'none';
 });
 
