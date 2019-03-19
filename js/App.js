@@ -5,7 +5,8 @@ var panelReviewPlayer = document.getElementById('panelReviewPlayer');
 var buttonAddPlayer = document.getElementById('buttonAddPlayer');
 var addPlayerNumber = document.getElementById('addPlayerNumber'); 
 var addPlayerName = document.getElementById('addPlayerName'); 
-var addPlayerRol = document.getElementById('addPlayerRol'); 
+var addPlayerRol = document.getElementById('addPlayerRol');
+var addPlay = document.getElementById('addPlay'); 
 var closePanelAddPlayer = document.getElementsByClassName("close")[0];
 var player = document.getElementById('player');
 
