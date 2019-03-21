@@ -133,6 +133,68 @@ function agregaEventosModificacionPartidos()
     });
 }
 
+function agregaEventosNuevoPartido()
+{
+    document.getElementsByClassName("close")[0].addEventListener('click', () => {
+        panelReviewPlay.style.display = 'none';
+    });
+
+    document.getElementById('buttonNewPlay').addEventListener('click', () => {
+        localStorage.clear();
+        partido.fecha = document.getElementById('playDate').value;
+        partido.hora = document.getElementById('playHour').value;
+        partido.categoria = document.getElementById('playCategory').value;
+        partido.equipo = document.getElementById('playTeam').value;
+        partido.rival = document.getElementById('playVersus').value;
+        partido.jugadores = [];
+        guardaPartido();
+        panelReviewPlay.style.display = 'none';
+        datosAPP.innerHTML = renderizaEstadisticas();
+        player.innerHTML = renderizaJugadores();
+    });
+
+    document.getElementById("buttonCancelNewPlay").addEventListener('click', () => {
+        panelReviewPlay.style.display = 'none';
+    });
+}
+
+function renderizaDatosNuevoPartido()
+{
+    var datosPartido = `
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>NUEVO PARTIDO</h2>
+            </div>
+            <div class="modal-body">
+                <p><input type="date" id="playDate" placeholder="Fecha"></p>
+                <p><input type="text" id="playHour" placeholder="Hora"></p>
+                <p><select id="playCategory">
+                    <option value="Infantil Femenino">Infantil Femenino</option>
+                    <option value="Cadete Femenino">Cadete Femenino</option>
+                    <option value="Juvenil Femenino">Juvenil Femenino</option>
+                    <option value="Senior Femenino">Senior Femenino</option>
+                    <option value="Infantil Masculino">Infantil Masculino</option>
+                    <option value="Cadete Masculino">Cadete Masculino</option>
+                    <option value="Juvenil Masculino">Juvenil Masculino</option>
+                    <option value="Senior Masculino">Senior Masculino</option>
+                </select></p>
+                <p><input type="text" id="playTeam" placeholder="Equipo"></p>
+                <p><input type="text" id="playVersus" placeholder="Rival"></p>                    
+                <p>
+                    <div class="button" id="buttonNewPlay">NUEVO</div>
+                    <div class="button" id="buttonCancelNewPlay">CANCELAR</div>
+                </p>
+            </div>
+            <div class="clearfix"></div>
+            <div class="modal-footer">
+                <div id="info-partido-2">STATS - Estadística para Voleibol</div>
+            </div>
+        </div>
+    `;
+    return datosPartido;
+}
+
 function renderizaDatosPartido()
 {
     var datosPartido = `
@@ -164,7 +226,7 @@ function renderizaDatosPartido()
             </div>
             <div class="clearfix"></div>
             <div class="modal-footer">
-                <div id="info-partido-2"></div>
+                <div id="info-partido-2">${partido.getDatosGenerales()}</div>
             </div>
         </div>
     `;
@@ -318,6 +380,12 @@ reviewPlay.addEventListener('click', () => {
     panelReviewPlay.innerHTML = renderizaDatosPartido();
     panelReviewPlay.style.display = 'block';
     agregaEventosModificacionPartidos();
+});
+
+addPlay.addEventListener('click', () => {
+    panelReviewPlay.innerHTML = renderizaDatosNuevoPartido();
+    panelReviewPlay.style.display = 'block';
+    agregaEventosNuevoPartido();
 });
 
 closePanelReviewPlay.addEventListener('click', () => {

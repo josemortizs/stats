@@ -1,3 +1,5 @@
+var navegador = navigator.userAgent;
+
 /*
     Esta función se encarga de recibir un "contenido" a exportar, 
     en nuestro caso serán los datos del partido previamente convertidos
@@ -14,6 +16,11 @@ function exportaPartido(contenido, nombreArchivo, tipoContenido)
     enlace.href = URL.createObjectURL(archivo);
     enlace.download = nombreArchivo;
     enlace.click();
+
+    if (navegador.includes('Mozilla')) // Pendiente de implementar export para mozilla
+    {
+        console.log("Es Mozilla");
+    }
 }
 
 function importaPartido(e)
