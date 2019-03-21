@@ -112,6 +112,65 @@ function reiniciaFormularioInsercionJugadas()
     agregaOpacidadJugadores();
 }
 
+function agregaEventosModificacionPartidos()
+{
+    document.getElementsByClassName("close")[0].addEventListener('click', () => {
+        panelReviewPlay.style.display = 'none';
+    });
+
+    document.getElementById('buttonEditPlay').addEventListener('click', () => {
+        partido.fecha = document.getElementById('playDate').value;
+        partido.hora = document.getElementById('playHour').value;
+        partido.categoria = document.getElementById('playCategory').value;
+        partido.equipo = document.getElementById('playTeam').value;
+        partido.rival = document.getElementById('playVersus').value;
+        guardaPartido();
+        panelReviewPlay.style.display = 'none';
+    });
+
+    document.getElementById("buttonCancelEditPlay").addEventListener('click', () => {
+        panelReviewPlay.style.display = 'none';
+    });
+}
+
+function renderizaDatosPartido()
+{
+    var datosPartido = `
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>EDITAR PARTIDO</h2>
+            </div>
+            <div class="modal-body">
+                <p><input type="text" id="playDate" placeholder="Fecha" value="${partido.fecha}"></p>
+                <p><input type="text" id="playHour" placeholder="Hora" value="${partido.hora}"></p>
+                <p><select id="playCategory">
+                    <option selected value="${partido.categoria}">${partido.categoria}</option>
+                    <option value="Infantil Femenino">Infantil Femenino</option>
+                    <option value="Cadete Femenino">Cadete Femenino</option>
+                    <option value="Juvenil Femenino">Juvenil Femenino</option>
+                    <option value="Senior Femenino">Senior Femenino</option>
+                    <option value="Infantil Masculino">Infantil Masculino</option>
+                    <option value="Cadete Masculino">Cadete Masculino</option>
+                    <option value="Juvenil Masculino">Juvenil Masculino</option>
+                    <option value="Senior Masculino">Senior Masculino</option>
+                </select></p>
+                <p><input type="text" id="playTeam" placeholder="Equipo" value="${partido.equipo}"></p>
+                <p><input type="text" id="playVersus" placeholder="Rival" value="${partido.rival}"></p>                    
+                <p>
+                    <div class="button" id="buttonEditPlay">EDITAR</div>
+                    <div class="button" id="buttonCancelEditPlay">CANCELAR</div>
+                </p>
+            </div>
+            <div class="clearfix"></div>
+            <div class="modal-footer">
+                <div id="info-partido-2"></div>
+            </div>
+        </div>
+    `;
+    return datosPartido;
+}
+
 function renderizaJugadores()
 {
     var jugadores = '';
@@ -256,7 +315,9 @@ function renderizaEstadisticas()
 /* Sección de eventos */
 
 reviewPlay.addEventListener('click', () => {
+    panelReviewPlay.innerHTML = renderizaDatosPartido();
     panelReviewPlay.style.display = 'block';
+    agregaEventosModificacionPartidos();
 });
 
 closePanelReviewPlay.addEventListener('click', () => {
