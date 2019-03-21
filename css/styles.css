@@ -68,6 +68,10 @@ body{
     color: white;
 }
 
+#deletePlay:hover{
+    background-color: #dd1d1d;
+}
+
 /* Fin de CSS: Globales */
 
 /* CSS Header */
@@ -131,7 +135,7 @@ li a.active {
 }
 
 .inputfile + label {
-    float: left;
+    /*float: left;*/
     color: #666;
     display: inline-block;
     cursor: pointer;
@@ -332,7 +336,9 @@ li a.active {
 /* Reglas para distintas resoluciones */
 
 @media only screen and (max-width: 1024px) {
-
+    .button{
+        width: 44%;
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -350,5 +356,23 @@ li a.active {
 
     #insertPlayNow{
         display: none;
+    }
+
+    .modal-content{
+        width: 90%;
+    }
+
+    .button{
+        width: 42%;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    #datos-app{
+        display: none;
+    }
+
+    li{
+        width: 100%;
     }
 }

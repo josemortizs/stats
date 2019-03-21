@@ -158,6 +158,56 @@ function agregaEventosNuevoPartido()
     });
 }
 
+function agregaEventosRevisaJugador(posicionJugadorArray)
+{
+    document.getElementsByClassName("close")[0].addEventListener('click', () => {
+        panelReviewPlay.style.display = 'none';
+    });
+
+    document.getElementById('deletePlay').addEventListener('click', () => {
+        partido.jugadores.splice(posicionJugadorArray, 1);
+        guardaPartido();
+        datosAPP.innerHTML = renderizaEstadisticas();
+        player.innerHTML = renderizaJugadores();
+        panelReviewPlay.style.display = 'none';
+    });
+
+    document.getElementById("buttonCancelReviewPlay").addEventListener('click', () => {
+        panelReviewPlay.style.display = 'none';
+    });
+}
+
+function revisaJugador(posicionJugadorArray)
+{
+    panelReviewPlay.innerHTML = renderizaDatosJugador(posicionJugadorArray);
+    panelReviewPlay.style.display = 'block';
+    agregaEventosRevisaJugador(posicionJugadorArray);
+}
+
+function renderizaDatosJugador(posicionJugadorArray)
+{
+    var datosJugador = `
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>INFORME INDIVIDUAL</h2>
+            </div>
+            <div class="modal-body">
+                ${partido.jugadores[posicionJugadorArray].nombre}
+            <p>
+                <div class="button" id="deletePlay">ELIMINAR JUGADOR</div>
+                <div class="button" id="buttonCancelReviewPlay">CANCELAR</div>
+            </p>
+            </div>
+            <div class="clearfix"></div>
+            <div class="modal-footer">
+                <div id="info-partido-2">${partido.getDatosGenerales()}</div>
+            </div>
+        </div>
+    `;
+    return datosJugador;
+}
+
 function renderizaDatosNuevoPartido()
 {
     var datosPartido = `
@@ -297,7 +347,7 @@ function renderizaEstadisticas()
     for(let i=0; i<partido.jugadores.length; i++)
     {
         let estadisticasIndividuales = partido.jugadores[i].getDatosEstadisticos();
-        estadisticas+= `<tr>`;
+        estadisticas+= `<tr onclick="revisaJugador('${i}')">`;
             estadisticas+= `<td class='font-b' rowspan="2">`+ partido.jugadores[i].numero +`</td>`;
             estadisticas+= `<td>`+ partido.jugadores[i].nombre +`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[11]+`</td>`;
@@ -331,7 +381,7 @@ function renderizaEstadisticas()
             estadisticas+= `<td>`+estadisticasIndividuales[51]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[53]+`</td>`;
         estadisticas+= `</tr>`;
-            estadisticas+= `<tr>`;
+        estadisticas+= `<tr onclick="revisaJugador('${i}')">`;
             estadisticas+= `<td>`+ partido.jugadores[i].posicion +`</td>`;
             estadisticas+= `<td>`+'%'+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[13]+`</td>`;
