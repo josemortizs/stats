@@ -68,7 +68,11 @@ body{
     color: white;
 }
 
-#deletePlay:hover{
+#delPlay{
+    width: 93%;
+}
+
+#deletePlay:hover, #delPlay:hover{
     background-color: #dd1d1d;
 }
 
@@ -215,6 +219,20 @@ li a.active {
     font-size: 16px;
     background-color: #5cb85c;
     color: white;
+}
+
+.plays-left {
+    float: left;
+    width: 50%;
+}
+
+select#plays {
+    height: 100px;
+    border-radius: 0;
+    width: 100%;
+    font-size: 24px;
+    cursor: pointer;
+    user-select: none;
 }
 
 .modal-body .button:hover{

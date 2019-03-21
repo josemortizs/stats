@@ -16,9 +16,10 @@ var panelReviewPlay = document.getElementById('panelReviewPlay');
 
 var partido = new Partido();
 
-var jugadorSeleccionado = 1;
+var jugadorSeleccionado = '1';
 var gestoSeleccionado = 'S';
 var jugadaSeleccionada = '--';
+var posicionSeleccionada = '0';
 
 /* Sección de funciones */
 
@@ -172,6 +173,14 @@ function agregaEventosRevisaJugador(posicionJugadorArray)
         panelReviewPlay.style.display = 'none';
     });
 
+    document.getElementById('delPlay').addEventListener('click', () => {
+        partido.jugadores[posicionSeleccionada].jugadas.splice(document.getElementById('plays').value, 1);
+        guardaPartido();
+        datosAPP.innerHTML = renderizaEstadisticas();
+        panelReviewPlay.innerHTML = renderizaDatosJugador(posicionJugadorArray);
+        agregaEventosRevisaJugador(posicionJugadorArray);
+    });
+
     document.getElementById("buttonCancelReviewPlay").addEventListener('click', () => {
         panelReviewPlay.style.display = 'none';
     });
@@ -179,6 +188,7 @@ function agregaEventosRevisaJugador(posicionJugadorArray)
 
 function revisaJugador(posicionJugadorArray)
 {
+    posicionSeleccionada = posicionJugadorArray;
     panelReviewPlay.innerHTML = renderizaDatosJugador(posicionJugadorArray);
     panelReviewPlay.style.display = 'block';
     agregaEventosRevisaJugador(posicionJugadorArray);
@@ -187,23 +197,39 @@ function revisaJugador(posicionJugadorArray)
 function renderizaDatosJugador(posicionJugadorArray)
 {
     var datosJugador = `
-        <div class="modal-content">
-            <div class="modal-header">
-                <span class="close">&times;</span>
-                <h2>INFORME INDIVIDUAL</h2>
-            </div>
-            <div class="modal-body">
-                ${partido.jugadores[posicionJugadorArray].nombre}
-            <p>
-                <div class="button" id="deletePlay">ELIMINAR JUGADOR</div>
-                <div class="button" id="buttonCancelReviewPlay">CANCELAR</div>
-            </p>
-            </div>
-            <div class="clearfix"></div>
-            <div class="modal-footer">
-                <div id="info-partido-2">${partido.getDatosGenerales()}</div>
-            </div>
-        </div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>INFORME INDIVIDUAL</h2>
+                </div>
+                <div class="modal-body">
+                    <h4>${partido.jugadores[posicionJugadorArray].nombre}</h4>
+                    <div class="plays-left">
+                        <select id= "plays" name="plays" size="10">
+    `;
+                        
+
+    for(let i=0;i<partido.jugadores[posicionJugadorArray].jugadas.length; i++)
+    {
+        datosJugador+= `<option value="${i}">${partido.jugadores[posicionJugadorArray].jugadas[i].tipo} ${partido.jugadores[posicionJugadorArray].jugadas[i].resultado}</option>`;
+    }
+
+
+    datosJugador+= `
+                        </select>
+                        <div class="button" id="delPlay">ELIMINAR JUGADA</div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <p>
+                        <div class="button" id="deletePlay">ELIMINAR JUGADOR</div>
+                        <div class="button" id="buttonCancelReviewPlay">CANCELAR</div>
+                    </p>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="modal-footer">
+                        <div id="info-partido-2">${partido.getDatosGenerales()}</div>
+                    </div>
+                </div>
     `;
     return datosJugador;
 }
