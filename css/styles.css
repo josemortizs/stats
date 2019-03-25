@@ -16,11 +16,11 @@ body{
 
 #datos-app{
     float: left;
-    width: 89%;
+    width: 91%;
     border: 1px solid #e7e7e7;
     background-color: #f3f3f3;
     border-radius: 10px;
-    margin-left: 5%;
+    margin-left: 4%;
     padding: 10px;
 }
 
@@ -36,6 +36,10 @@ body{
 
 #datos-app tr{
     border-bottom: 0.5px solid #5cb85c;
+}
+
+#datos-app td{
+    border: 0.5px solid #5cb85c;
 }
 
 #datos-app table tr:hover{
@@ -412,6 +416,15 @@ select#plays {
 
     .button{
         width: 42%;
+    }
+
+    #datos-app{
+        margin-left: 0%;
+        width: 100%;
+    }
+    /* Hasta solucionar problema con impresión PDF en móviles */
+    #printPlay{
+        display: none;
     }
 }
 
