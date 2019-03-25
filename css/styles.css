@@ -76,6 +76,31 @@ body{
     background-color: #dd1d1d;
 }
 
+.est-ind {
+    width: 95%;
+    float: left;
+    border: 1px solid rgb(169, 169, 169);
+    margin-left: 4%;
+    background-color: #5cb85c;
+    color: white;
+    user-select: none;
+}
+
+.por-ind {
+    width: 46%;
+    margin-left: 4%;
+}
+
+.est-neg{
+    float: left;
+    background-color: rgb(233, 157, 157);
+}
+
+.est-pos{
+    float: right;
+    background-color: rgb(157, 233, 182);
+}
+
 /* Fin de CSS: Globales */
 
 /* CSS Header */
@@ -222,6 +247,11 @@ li a.active {
 }
 
 .plays-left {
+    float: left;
+    width: 50%;
+}
+
+.plays-right {
     float: left;
     width: 50%;
 }

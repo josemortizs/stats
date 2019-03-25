@@ -214,10 +214,38 @@ function renderizaDatosJugador(posicionJugadorArray)
         datosJugador+= `<option value="${i}">${partido.jugadores[posicionJugadorArray].jugadas[i].tipo} ${partido.jugadores[posicionJugadorArray].jugadas[i].resultado}</option>`;
     }
 
+    let estadisticasIndividuales = partido.jugadores[posicionJugadorArray].getDatosEstadisticos();
+    let psNeg = (parseFloat(estadisticasIndividuales[13]) + parseFloat(estadisticasIndividuales[15])).toFixed(1);
+    let psPos = (parseFloat(estadisticasIndividuales[17]) + parseFloat(estadisticasIndividuales[19]) + parseFloat(estadisticasIndividuales[21])).toFixed(1);
+    let prNeg = (parseFloat(estadisticasIndividuales[2]) + parseFloat(estadisticasIndividuales[4]) + parseFloat(estadisticasIndividuales[6])).toFixed(1);
+    let prPos = (parseFloat(estadisticasIndividuales[8]) + parseFloat(estadisticasIndividuales[10]));
+    let paNeg = (parseFloat(estadisticasIndividuales[24]) + parseFloat(estadisticasIndividuales[26]) + parseFloat(estadisticasIndividuales[28])).toFixed(1);
+    let paPos = (parseFloat(estadisticasIndividuales[30]) + parseFloat(estadisticasIndividuales[32]));
+    let pbNeg = (parseFloat(estadisticasIndividuales[35]) + parseFloat(estadisticasIndividuales[37]) + parseFloat(estadisticasIndividuales[39])).toFixed(1);
+    let pbPos = (parseFloat(estadisticasIndividuales[41]) + parseFloat(estadisticasIndividuales[43]));
+    let pdNeg = (parseFloat(estadisticasIndividuales[46]) + parseFloat(estadisticasIndividuales[48]) + parseFloat(estadisticasIndividuales[50])).toFixed(1);
+    let pdPos = (parseFloat(estadisticasIndividuales[52]) + parseFloat(estadisticasIndividuales[54]));
 
     datosJugador+= `
                         </select>
                         <div class="button" id="delPlay">ELIMINAR JUGADA</div>
+                    </div>
+                    <div class="plays-right">
+                        <div class="est-ind">SAQUE</div>
+                        <div class="por-ind est-neg">${estadisticasIndividuales[12] + estadisticasIndividuales[14]} (${psNeg} %)</div>
+                        <div class="por-ind est-pos">${estadisticasIndividuales[16] + estadisticasIndividuales[18] + estadisticasIndividuales[20]} (${psPos} %)</div>
+                        <div class="est-ind">RECEPCIÓN</div>
+                        <div class="por-ind est-neg">${estadisticasIndividuales[1] + estadisticasIndividuales[3] + estadisticasIndividuales[5]} (${prNeg} %)</div>
+                        <div class="por-ind est-pos">${estadisticasIndividuales[7] + estadisticasIndividuales[9]} (${prPos} %)</div>
+                        <div class="est-ind">ATAQUE</div>
+                        <div class="por-ind est-neg">${estadisticasIndividuales[23] + estadisticasIndividuales[25] + estadisticasIndividuales[27]} (${paNeg} %)</div>
+                        <div class="por-ind est-pos">${estadisticasIndividuales[29] + estadisticasIndividuales[31]} (${paPos} %)</div>
+                        <div class="est-ind">BLOQUEO</div>
+                        <div class="por-ind est-neg">${estadisticasIndividuales[34] + estadisticasIndividuales[36] + estadisticasIndividuales[38]} (${pbNeg} %)</div>
+                        <div class="por-ind est-pos">${estadisticasIndividuales[40] + estadisticasIndividuales[42]} (${pbPos} %)</div>
+                        <div class="est-ind">DEFENSA</div>
+                        <div class="por-ind est-neg">${estadisticasIndividuales[45] + estadisticasIndividuales[47] + estadisticasIndividuales[49]} (${pdNeg} %)</div>
+                        <div class="por-ind est-pos">${estadisticasIndividuales[51] + estadisticasIndividuales[53]} (${pdPos} %)</div>
                     </div>
                     <div class="clearfix"></div>
                     <p>
@@ -448,6 +476,15 @@ function renderizaEstadisticas()
 
     return estadisticas;
 }
+
+function actualizaBarrasDePorcentaje(barra1, porcentaje1, barra2, porcentaje2)
+{
+    document.getElementById('barra1').innerHTML = porcentaje1;
+    document.getElementById('barra1').styles.width = porcentaje1;
+    document.getElementById('barra2').innerHTML = porcentaje2;
+    document.getElementById('barra2').styles.width = porcentaje2;
+}
+
 /* Fin de: Sección de funciones */
 /* ******************************************************************************* */
 /* Sección de eventos */
