@@ -1,12 +1,14 @@
 document.getElementById('printPlay').addEventListener('click', () => {
-    imprimirPartido();
+    let nombreArchivo = prompt('¿Nombre y/o datos del partido?', 'STATS - Estadísticas para Voleibol');
+    imprimirPartido(nombreArchivo);
 });
 
 
-function imprimirPartido()
+function imprimirPartido(nombreArchivo)
 {
     let mywindow = window.open('', 'PRINT', 'height=650, width=900, top=100, left=150');
-    let title = "STATS - Estadísticas para Voleibol";
+    let title = nombreArchivo;
+    let footer = "STATS - Estadísticas para Voleibol";
 
     mywindow.document.write(`<html><head><title>${title}</title>`);
     mywindow.document.write(`<style>
@@ -25,9 +27,21 @@ function imprimirPartido()
                                 td{
                                     border: 0.5px solid #5cb85c;
                                 }
+                                footer{
+                                    position: absolute;
+                                    bottom: 0;
+                                }
                             </style>`);
     mywindow.document.write(`</head><body>`);
     mywindow.document.write(renderizaEstadisticasCSS());
+    
+    if(partido.jugadores.length > 10)
+    {
+        mywindow.document.write(`<footer style="position:relative;">${footer}</footer>`);
+    } else {
+        mywindow.document.write(`<footer>${footer}</footer>`);
+    }                            
+
     mywindow.document.write(`</body></html>`);
 
     mywindow.document.close();  //necesario para IE >= 10
