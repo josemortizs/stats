@@ -47,7 +47,8 @@ table{
 }
 
 #datos-app table tr:hover{
-    background-color: white;
+    background-color:#5cb85c;
+    color: white;
     cursor: pointer;
 }
 
@@ -370,7 +371,7 @@ select#plays {
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
     border-radius: 50px;
-    font-size: 32px;
+    font-size: 24px;
     line-height:32px;
     text-transform: uppercase;
     float:left;

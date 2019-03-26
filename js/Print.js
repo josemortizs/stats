@@ -14,9 +14,13 @@ function imprimirPartido()
                                     width: 100%;
                                     text-align: center;
                                     border-collapse: collapse;
+                                    margin-top: 3%;
                                 }
                                 th{
                                     border: 1px solid #5cb85c;
+                                    background: #9ad49a;
+                                    color: white;
+                                    font-weight: bold;
                                 }
                                 td{
                                     border: 0.5px solid #5cb85c;
