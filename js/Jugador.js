@@ -1,9 +1,13 @@
 /*
+    STATS - Estadísticas para el Voleibol
+    Desarrollado por José Manuel Ortiz Sánchez
+    josemortizs@gmail.com --- 697306046
+*/
+/*
     --------------------Clase Jugador--------------------
     Usada para representar a cada jugador, posee un array
     de elemenos de tipo Jugada para almacenar cada una de
     las acciones de dicho jugador.
-    Desarrollado por José Manuel Ortiz Sánchez
 */
 class Jugador
 {

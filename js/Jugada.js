@@ -1,7 +1,11 @@
 /*
+    STATS - Estadísticas para el Voleibol
+    Desarrollado por José Manuel Ortiz Sánchez
+    josemortizs@gmail.com --- 697306046
+*/
+/*
     --------------------Clase Jugada------------------------
     Usada para representar una única jugada con su resultado
-    Desarrollado por José Manuel Ortiz Sánchez
 */
 class Jugada
 {

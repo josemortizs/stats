@@ -1,3 +1,18 @@
+/*
+    STATS - Estadísticas para el Voleibol
+    Desarrollado por José Manuel Ortiz Sánchez
+    josemortizs@gmail.com --- 697306046
+*/
+/*
+    ------------------Archivo Print.js------------------
+    Alberga la función usada para imprimir partido y el 
+    evento (click) que lanza dicha función. También está 
+    definida la función renderizaEstadisticasCSS(), muy 
+    similar a renderizaEstadisticas(). He tenido que 
+    generar esta función redundante casi al 100% para
+    agregarle los estilos propios de la impresión CSS.
+*/
+
 document.getElementById('printPlay').addEventListener('click', () => {
     let nombreArchivo = prompt('¿Nombre y/o datos del partido?', 'STATS - Estadísticas para Voleibol');
     imprimirPartido(nombreArchivo);

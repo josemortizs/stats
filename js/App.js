@@ -1,3 +1,8 @@
+/*
+    STATS - Estadísticas para el Voleibol
+    Desarrollado por José Manuel Ortiz Sánchez
+    josemortizs@gmail.com --- 697306046
+*/
 /* Sección de variables enlazadas con el DOM */
 
 var datosAPP = document.getElementById('datos-app');

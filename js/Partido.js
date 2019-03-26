@@ -1,3 +1,14 @@
+/*
+    STATS - Estadísticas para el Voleibol
+    Desarrollado por José Manuel Ortiz Sánchez
+    josemortizs@gmail.com --- 697306046
+*/
+/*
+    --------------------Clase Partido--------------------
+    Usada para unificar los datos de un partido, contiene
+    un Array de objetos de tipo Jugador y atributos para
+    almacenar sus datos propios.
+*/
 class Partido
 {
     constructor(fecha, hora, categoria, equipo, rival)
