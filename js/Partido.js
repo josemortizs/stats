@@ -19,6 +19,7 @@ class Partido
         this.equipo = equipo;
         this.rival = rival;
         this.jugadores = Array();
+        this.erroresRival = [0, 0, 0, 0, 0];
     }
 
     fromJSON(json)
@@ -35,6 +36,15 @@ class Partido
             jugador.fromJSON(json.jugadores[i]);
             this.jugadores.push(jugador);
         }
+
+        /*
+            Agrego este condicional porque en la versión 1.0, de esta aplicación,
+            no existía este atributo y generaría un error si intentásemos trabajar 
+            con ficheros de esta versión. 27/03/2019 (Eliminar en próximas versiones)
+        
+        */
+       
+        (json.erroresRival) ? this.erroresRival = json.erroresRival : this.erroresRival = [0, 0, 0, 0, 0];
     }
 
     getNombrePartido()

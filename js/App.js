@@ -28,12 +28,15 @@ var posicionSeleccionada = '0';
 
 /* Sección de funciones */
 
+// Borra del localStorage el partido anterior y graba el nuevo.
 function guardaPartido()
 {
     localStorage.clear();
     localStorage.setItem(partido.getNombrePartido(), JSON.stringify(partido));
 }
 
+// Accede al localStorage y recupera el primer registro de éste. Lo almacena 
+// en una variable e inicializa el objeto "partido".
 function recuperaPartido()
 {
     let partidoLocalStorage = JSON.parse(localStorage.getItem(localStorage.key(0)));
@@ -41,6 +44,12 @@ function recuperaPartido()
     partido.fromJSON(partidoLocalStorage);
 }
 
+/*
+    Almacena en la variable números las referencias al DOM donde la clase sea
+    'number-player', es decir, los números de los jugadores. Recibe el valor 
+    del 'jugador' pulsado, recorre el array y si encuentra una coincidencia 
+    le aplica el estilo 'opacity: 1'.
+*/
 function agregaOpacidadJugadores(numero)
 {
     var numeros = document.getElementsByClassName('number-player');
@@ -57,6 +66,7 @@ function agregaOpacidadJugadores(numero)
     }
 }
 
+// Similar a la anterior
 function agregaOpacidadJugadas(jugada)
 {
     var jugadas = document.getElementsByClassName('move-player');
@@ -73,6 +83,7 @@ function agregaOpacidadJugadas(jugada)
     }
 }
 
+// Similar a agregaOpacidadJugadores();
 function agregaOpacidadGestos(gesto)
 {
     var gestos = document.getElementsByClassName('gesture-selected');
@@ -589,12 +600,10 @@ function renderizaEstadisticas()
     return estadisticas;
 }
 
-function actualizaBarrasDePorcentaje(barra1, porcentaje1, barra2, porcentaje2)
+function agregaErrorRival(error)
 {
-    document.getElementById('barra1').innerHTML = porcentaje1;
-    document.getElementById('barra1').styles.width = porcentaje1;
-    document.getElementById('barra2').innerHTML = porcentaje2;
-    document.getElementById('barra2').styles.width = porcentaje2;
+    partido.erroresRival[error]++;
+    guardaPartido();
 }
 
 /* Fin de: Sección de funciones */
