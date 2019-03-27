@@ -20,7 +20,7 @@ table{
 
 #datos-app{
     float: left;
-    width: 91%;
+    width: 92%;
     border: 1px solid #e7e7e7;
     background-color: #f3f3f3;
     border-radius: 10px;
@@ -50,6 +50,14 @@ table{
     background-color:#5cb85c;
     color: white;
     cursor: pointer;
+}
+
+#datos-app .border2{
+    border-left: 3px solid #5cb85c;
+}
+
+#datos-app .sombreado{
+    background-color: rgb(212, 211, 211);
 }
 
 .font-b{

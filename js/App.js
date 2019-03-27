@@ -393,38 +393,38 @@ function renderizaEstadisticas()
         <tr>
             <th rowspan="2">#</th>
             <th rowspan="2">Jugador</th>
-            <th colspan="6">Saque</th>
-            <th colspan="6">Recepción</th>
-            <th colspan="6">Ataque</th>
-            <th colspan="6">Bloqueo</th>
-            <th colspan="6">Defensa</th>
+            <th colspan="6" class='border2'>Saque</th>
+            <th colspan="6" class='border2'>Recepción</th>
+            <th colspan="6" class='border2'>Ataque</th>
+            <th colspan="6" class='border2'>Bloqueo</th>
+            <th colspan="6" class='border2'>Defensa</th>
         </tr>
         <tr>
-            <th>ST</th>
+            <th class='border2'>ST</th>
             <th>--</th>
             <th>-</th>
             <th>:</th>
             <th>+</th>
             <th>++</th>
-            <th>RT</th>
+            <th class='border2'>RT</th>
             <th>--</th>
             <th>-</th>
             <th>:</th>
             <th>+</th>
             <th>++</th>                    
-            <th>AT</th>
+            <th class='border2'>AT</th>
             <th>--</th>
             <th>-</th>
             <th>:</th>
             <th>+</th>
             <th>++</th>
-            <th>BT</th>
+            <th class='border2'>BT</th>
             <th>--</th>
             <th>-</th>
             <th>:</th>
             <th>+</th>
             <th>++</th>                     
-            <th>DT</th>
+            <th class='border2'>DT</th>
             <th>--</th>
             <th>-</th>
             <th>:</th>
@@ -478,67 +478,81 @@ function renderizaEstadisticas()
         totales[28]+=estadisticasIndividuales[51];
         totales[29]+=estadisticasIndividuales[53];
 
-        estadisticas+= `<tr onclick="revisaJugador('${i}')">`;
+        if (i%2 == 0)
+        {
+            estadisticas+= `<tr onclick="revisaJugador('${i}')">`;
+        }
+        else
+        {
+            estadisticas+= `<tr class='sombreado' onclick="revisaJugador('${i}')">`;
+        }
             estadisticas+= `<td class='font-b' rowspan="2">`+ partido.jugadores[i].numero +`</td>`;
             estadisticas+= `<td>`+ partido.jugadores[i].nombre +`</td>`;
-            estadisticas+= `<td>`+estadisticasIndividuales[11]+`</td>`;
+            estadisticas+= `<td  class='border2'>`+estadisticasIndividuales[11]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[12]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[14]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[16]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[18]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[20]+`</td>`;
-            estadisticas+= `<td>`+estadisticasIndividuales[0]+`</td>`;
+            estadisticas+= `<td  class='border2'>`+estadisticasIndividuales[0]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[1]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[3]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[5]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[7]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[9]+`</td>`;
-            estadisticas+= `<td>`+estadisticasIndividuales[22]+`</td>`;
+            estadisticas+= `<td  class='border2'>`+estadisticasIndividuales[22]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[23]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[25]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[27]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[29]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[31]+`</td>`;
-            estadisticas+= `<td>`+estadisticasIndividuales[33]+`</td>`;
+            estadisticas+= `<td  class='border2'>`+estadisticasIndividuales[33]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[34]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[36]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[38]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[40]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[42]+`</td>`;
-            estadisticas+= `<td>`+estadisticasIndividuales[44]+`</td>`;
+            estadisticas+= `<td  class='border2'>`+estadisticasIndividuales[44]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[45]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[47]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[49]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[51]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[53]+`</td>`;
         estadisticas+= `</tr>`;
-        estadisticas+= `<tr onclick="revisaJugador('${i}')">`;
+        if (i%2 == 0)
+        {
+            estadisticas+= `<tr onclick="revisaJugador('${i}')">`;
+        }
+        else
+        {
+            estadisticas+= `<tr class='sombreado' onclick="revisaJugador('${i}')">`;
+        }
             estadisticas+= `<td>`+ partido.jugadores[i].posicion +`</td>`;
-            estadisticas+= `<td>`+'%'+`</td>`;
+            estadisticas+= `<td  class='border2'>`+'%'+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[13]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[15]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[17]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[19]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[21]+`</td>`;
-            estadisticas+= `<td>`+'%'+`</td>`;
+            estadisticas+= `<td  class='border2'>`+'%'+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[2]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[4]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[6]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[8]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[10]+`</td>`;
-            estadisticas+= `<td>`+'%'+`</td>`;
+            estadisticas+= `<td  class='border2'>`+'%'+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[24]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[26]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[28]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[30]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[32]+`</td>`;
-            estadisticas+= `<td>`+'%'+`</td>`;
+            estadisticas+= `<td  class='border2'>`+'%'+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[35]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[37]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[39]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[41]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[43]+`</td>`;
-            estadisticas+= `<td>`+'%'+`</td>`;
+            estadisticas+= `<td  class='border2'>`+'%'+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[46]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[48]+`</td>`;
             estadisticas+= `<td>`+estadisticasIndividuales[50]+`</td>`;
@@ -553,7 +567,14 @@ function renderizaEstadisticas()
 
     for(let x=0; x<totales.length; x++)
     {
-        estadisticas+= `<td>${totales[x]}</td>`;
+        if(x%6 == 0)
+        {
+            estadisticas+= `<td class='border2'>${totales[x]}</td>`;
+        }
+        else
+        {
+            estadisticas+= `<td>${totales[x]}</td>`;
+        }
     }
 
     estadisticas+= `</tr><tr>`
@@ -591,11 +612,40 @@ function renderizaEstadisticas()
 
     for(let x=0; x<porcentajes.length; x++)
     {
-        estadisticas+= `<td>${porcentajes[x]}</td>`;
+        if(x%6 == 0)
+        {
+            estadisticas+= `<td class='border2'>${porcentajes[x]}</td>`;
+        }
+        else
+        {
+            estadisticas+= `<td>${porcentajes[x]}</td>`;
+        }
     }
 
     estadisticas+= `</tr>
                     </table>`;
+
+    estadisticas+= `
+                    <table>
+                    <tr>
+                        <th colspan="5">ERRORES DEL EQUIPO RIVAL</th>    
+                    </tr>
+                    <tr>
+                        <th>EN SAQUE</th>
+                        <th>DOBLES, LEVANTAMIENTOS</th>
+                        <th>EN ATAQUE</th>
+                        <th>EN BLOQUEO, REDES</th>
+                        <th>ERROR DE POSICIÓN O ROTACIÓN</th>
+                    </tr>
+                    <tr>
+                        <td>${partido.erroresRival[0]}</td>
+                        <td>${partido.erroresRival[1]}</td>
+                        <td>${partido.erroresRival[2]}</td>
+                        <td>${partido.erroresRival[3]}</td>
+                        <td>${partido.erroresRival[4]}</td>
+                    </tr>
+                </table>
+    `;
 
     return estadisticas;
 }
@@ -604,6 +654,8 @@ function agregaErrorRival(error)
 {
     partido.erroresRival[error]++;
     guardaPartido();
+    datosAPP.innerHTML = renderizaEstadisticas();
+
 }
 
 /* Fin de: Sección de funciones */
