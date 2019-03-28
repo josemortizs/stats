@@ -638,11 +638,11 @@ function renderizaEstadisticas()
                         <th>ERROR DE POSICIÓN O ROTACIÓN</th>
                     </tr>
                     <tr>
-                        <td>${partido.erroresRival[0]}</td>
-                        <td>${partido.erroresRival[1]}</td>
-                        <td>${partido.erroresRival[2]}</td>
-                        <td>${partido.erroresRival[3]}</td>
-                        <td>${partido.erroresRival[4]}</td>
+                        <td ondblclick="cambiarErrores(0);" title="Doble click para modificar">${partido.erroresRival[0]}</td>
+                        <td ondblclick="cambiarErrores(1);" title="Doble click para modificar">${partido.erroresRival[1]}</td>
+                        <td ondblclick="cambiarErrores(2);" title="Doble click para modificar">${partido.erroresRival[2]}</td>
+                        <td ondblclick="cambiarErrores(3);" title="Doble click para modificar">${partido.erroresRival[3]}</td>
+                        <td ondblclick="cambiarErrores(4);" title="Doble click para modificar">${partido.erroresRival[4]}</td>
                     </tr>
                 </table>
     `;
@@ -650,12 +650,29 @@ function renderizaEstadisticas()
     return estadisticas;
 }
 
+// Recibe por parámetro la posición del error en el Array y le suma 1.
 function agregaErrorRival(error)
 {
     partido.erroresRival[error]++;
     guardaPartido();
     datosAPP.innerHTML = renderizaEstadisticas();
 
+}
+
+/*
+    Recibe por parámetro la posición en el Array, pregunta por el valor correcto
+    y en caso de que se ingrese un valor válido es modificado en el Array.
+    Después guarda los datos y renderiza de nuevo las estadísticas actualizadas.
+*/
+function cambiarErrores(error)
+{
+    var errores = prompt('¿Cual es el número correcto de errores?', partido.erroresRival[error]);
+    if (errores != null)
+    {
+        partido.erroresRival[error] = errores;
+        guardaPartido();
+        datosAPP.innerHTML = renderizaEstadisticas();
+    }
 }
 
 /* Fin de: Sección de funciones */
