@@ -33,7 +33,7 @@
 
     <!--Sección principal-->
     <main>
-        <div id="datos-app"></div>
+        <div id="datos-app"><div id="datos-app-inicial">¡Pulse sobre "NUEVO PARTIDO" para comenzar!, o importe un partido o plantilla ya existente.</div></div>
         <div class="clearfix"></div>
         <div class="form-add-player ml-5">
             <div class="form-header">AGREGAR JUGADOR</div>
@@ -56,11 +56,11 @@
             <div class="form-header">AGREGAR JUGADA</div>
             <div class="form-body">
                 <div id="error-vs">
-                    <div onclick="agregaErrorRival(0)" class="gesture-selected" title="Error de saque rival">ES</div>
-                    <div onclick="agregaErrorRival(1)" class="gesture-selected" title="Dobles o levantamiento de algún rival">EC</div>
-                    <div onclick="agregaErrorRival(2)" class="gesture-selected" title="Error en ataque rival">EA</div>
-                    <div onclick="agregaErrorRival(3)" class="gesture-selected" title="Toque de red, en ataque o bloqueo">EB</div>
-                    <div onclick="agregaErrorRival(4)" class="gesture-selected" title="Falta de posición o de rotación rival">ET</div>
+                    <div onclick="agregaErrorRival(0)" class="gesture-selected err-rival" title="Error de saque rival">ES</div>
+                    <div onclick="agregaErrorRival(1)" class="gesture-selected err-rival" title="Dobles o levantamiento de algún rival">EC</div>
+                    <div onclick="agregaErrorRival(2)" class="gesture-selected err-rival" title="Error en ataque rival">EA</div>
+                    <div onclick="agregaErrorRival(3)" class="gesture-selected err-rival" title="Toque de red, en ataque o bloqueo">EB</div>
+                    <div onclick="agregaErrorRival(4)" class="gesture-selected err-rival" title="Falta de posición o de rotación rival">ET</div>
                 </div>
                 <div class="clearfix"></div>
                 <div id="player"></div>

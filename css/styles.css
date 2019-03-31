@@ -28,6 +28,12 @@ table{
     padding: 10px;
 }
 
+#datos-app-inicial{
+    text-align: center;
+    color: #666;
+    font-weight: bold;
+}
+
 #datos-app table{
     width: 100%;
     text-align: center;
@@ -379,8 +385,8 @@ select#plays {
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
     border-radius: 50px;
-    font-size: 24px;
-    line-height:32px;
+    font-size: 20x;
+    line-height:28px;
     text-transform: uppercase;
     float:left;
     cursor: pointer;
@@ -388,6 +394,18 @@ select#plays {
     text-align: center;
     color: white;
     opacity: 0.5;
+}
+
+.gesture-selected{
+    font-size: 32px;
+}
+
+.err-rival{
+    font-size: 20px;
+}
+
+.number-player{
+    font-size: 22px;
 }
 
 .number-player:hover, .move-player:hover, .gesture-selected:hover{
