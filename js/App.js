@@ -163,6 +163,7 @@ function agregaEventosNuevoPartido()
         partido.categoria = document.getElementById('playCategory').value;
         partido.equipo = document.getElementById('playTeam').value;
         partido.rival = document.getElementById('playVersus').value;
+        partido.erroresRival = [0, 0, 0, 0, 0];
         partido.jugadores = [];
         guardaPartido();
         panelReviewPlay.style.display = 'none';
@@ -638,11 +639,11 @@ function renderizaEstadisticas()
                         <th>ERROR DE POSICIÓN O ROTACIÓN</th>
                     </tr>
                     <tr>
-                        <td ondblclick="cambiarErrores(0);" title="Doble click para modificar">${partido.erroresRival[0]}</td>
-                        <td ondblclick="cambiarErrores(1);" title="Doble click para modificar">${partido.erroresRival[1]}</td>
-                        <td ondblclick="cambiarErrores(2);" title="Doble click para modificar">${partido.erroresRival[2]}</td>
-                        <td ondblclick="cambiarErrores(3);" title="Doble click para modificar">${partido.erroresRival[3]}</td>
-                        <td ondblclick="cambiarErrores(4);" title="Doble click para modificar">${partido.erroresRival[4]}</td>
+                        <td onclick="cambiarErrores(0);" title="Doble click para modificar">${partido.erroresRival[0]}</td>
+                        <td onclick="cambiarErrores(1);" title="Doble click para modificar">${partido.erroresRival[1]}</td>
+                        <td onclick="cambiarErrores(2);" title="Doble click para modificar">${partido.erroresRival[2]}</td>
+                        <td onclick="cambiarErrores(3);" title="Doble click para modificar">${partido.erroresRival[3]}</td>
+                        <td onclick="cambiarErrores(4);" title="Doble click para modificar">${partido.erroresRival[4]}</td>
                     </tr>
                 </table>
     `;
